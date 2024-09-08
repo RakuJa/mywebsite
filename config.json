@@ -1,20 +1,20 @@
 {
-  "readmeUrl": "https://raw.githubusercontent.com/cveinnt/cveinnt/master/README.md",
-  "title": "LiveTerm",
-  "name": "John Doe",
-  "ascii": "liveterm",
+  "readmeUrl": "https://raw.githubusercontent.com/rakuja/mywebsite/master/README.md",
+  "title": "RakuJa",
+  "name": "Daniele Giachetto",
+  "ascii": "rakuja",
   "social": {
-    "github": "github",
-    "linkedin": "linkedin"
+    "github": "rakuja",
+    "linkedin": "danielegiachetto"
   },
-  "email": "contact@email.com",
-  "ps1_hostname": "liveterm",
+  "email": "danielegiachetto1999@gmail.com",
+  "ps1_hostname": "danielegiachetto",
   "ps1_username": "visitor",
-  "repo": "https://github.com/Cveinnt/LiveTerm",
-  "resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
+  "repo": "https://github.com/rakuja/mywebsite",
+  "resume_url": "https://github.com/RakuJa/CV/blob/master/CV.pdf",
   "donate_urls": {
-    "paypal": "https://paypal.me/cveinnt",
-    "patreon": "https://patreon.com/cveinnt"
+    "ko_fi": "https://ko-fi.com/rakuja",
+    "paypal": "https://paypal.me/danielegiachetto"
   },
   "colors": {
     "light": {
@@ -27,12 +27,12 @@
       "red": "#CA2124"
     },
     "dark": {
-      "background": "#2E3440",
-      "foreground": "#E5E9F0",
+      "background": "#1E1310",
+      "foreground": "#E06650",
       "yellow": "#5E81AC",
       "green": "#A3BE8C",
       "gray": "#88C0D0",
-      "blue": "#EBCB8B",
+      "blue": "#9D99B3",
       "red": "#BF616A"
     }
   }

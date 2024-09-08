@@ -11,14 +11,14 @@ export const help = async (args: string[]): Promise<string> => {
     if (i % 7 === 0) {
       c += Object.keys(bin).sort()[i - 1] + '\n';
     } else {
-      c += Object.keys(bin).sort()[i - 1] + ' ';
+      c += Object.keys(bin).sort()[i - 1] + ', ';
     }
   }
   return `Welcome! Here are all the available commands:
 \n${c}\n
 [tab]: trigger completion.
 [ctrl+l]/clear: clear terminal.\n
-Type 'sumfetch' to display summary.
+Type 'summary' to display summary.
 `;
 };
 
@@ -32,9 +32,9 @@ export const repo = async (args: string[]): Promise<string> => {
 export const about = async (args: string[]): Promise<string> => {
   return `Hi, I am ${config.name}. 
 Welcome to my website!
-More about me:
-'sumfetch' - short summary.
-'resume' - my latest resume.
+For more information about me, enter one of the following commands (without quotes!):
+'summary' - short summary.
+'resume' or 'cv' - my latest resume.
 'readme' - my github readme.`;
 };
 
@@ -43,12 +43,17 @@ export const resume = async (args: string[]): Promise<string> => {
   return 'Opening resume...';
 };
 
+export const cv = async (args: string[]): Promise<string> => {
+  window.open(`${config.resume_url}`);
+  return 'Opening resume...';
+};
+
 // Donate
 export const donate = async (args: string[]): Promise<string> => {
-  return `thank you for your interest. 
+  return `Thank you for your interest.
 here are the ways you can support my work:
 - <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.paypal}" target="_blank">paypal</a></u>
-- <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.patreon}" target="_blank">patreon</a></u>
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.ko_fi}" target="_blank">ko-fi</a></u>
 `;
 };
 
@@ -60,35 +65,12 @@ export const email = async (args: string[]): Promise<string> => {
 
 export const github = async (args: string[]): Promise<string> => {
   window.open(`https://github.com/${config.social.github}/`);
-
   return 'Opening github...';
 };
 
 export const linkedin = async (args: string[]): Promise<string> => {
   window.open(`https://www.linkedin.com/in/${config.social.linkedin}/`);
-
   return 'Opening linkedin...';
-};
-
-// Search
-export const google = async (args: string[]): Promise<string> => {
-  window.open(`https://google.com/search?q=${args.join(' ')}`);
-  return `Searching google for ${args.join(' ')}...`;
-};
-
-export const duckduckgo = async (args: string[]): Promise<string> => {
-  window.open(`https://duckduckgo.com/?q=${args.join(' ')}`);
-  return `Searching duckduckgo for ${args.join(' ')}...`;
-};
-
-export const bing = async (args: string[]): Promise<string> => {
-  window.open(`https://bing.com/search?q=${args.join(' ')}`);
-  return `Wow, really? You are using bing for ${args.join(' ')}?`;
-};
-
-export const reddit = async (args: string[]): Promise<string> => {
-  window.open(`https://www.reddit.com/search/?q=${args.join(' ')}`);
-  return `Searching reddit for ${args.join(' ')}...`;
 };
 
 // Typical linux commands
@@ -101,57 +83,76 @@ export const whoami = async (args: string[]): Promise<string> => {
 };
 
 export const ls = async (args: string[]): Promise<string> => {
-  return `a
-bunch
-of
-fake
-directories`;
+  return `rewrite
+your
+code
+using
+Rust`;
 };
 
 export const cd = async (args: string[]): Promise<string> => {
   return `unfortunately, i cannot afford more directories.
-if you want to help, you can type 'donate'.`;
+if you want to help, you can type 'donate' (Also, I won't allow path traversal attacks).`;
 };
 
 export const date = async (args: string[]): Promise<string> => {
   return new Date().toString();
 };
 
-export const vi = async (args: string[]): Promise<string> => {
-  return `woah, you still use 'vi'? just try 'vim'.`;
+export const quote = async (args: string[]): Promise<string> => {
+  const quotes = [
+      "\"Victory belongs to the most persevering.\" - Napoleon Bonaparte",
+      "\"Sharing knowledge is the most fundamental act of friendship. Because it is a way you can give something without loosing something.\" - Richard Stallman",
+      "\"The average consumer does not know the difference between browser, Internet and search box.\" - Mitchell Baker",
+      "\"Never confuse a single defeat with a final defeat\" -  F. Scott Fitzgerald",
+      "\"I mean, if 10 years from now, when you are doing something quick and dirty, you suddenly visualize that I am looking over your shoulders and say to yourself \"Dijkstra would not have liked this\", well, that would be enough immortality for me.\" - Edsger W. Dijkstra",
+      "\"The question of whether a computer can think is no more interesting than the question of whether a submarine can swim.\" - Edsger W. Dijkstra",
+      "\"The use of COBOL cripples the mind; its teaching should, therefore, be regarded as a criminal offense.\" - Edsger W. Dijkstra",
+      "\"The most important property of a program is whether it accomplishes the intention of its user.\" - Graydon Hoare",
+      "\"I think, fundamentally, open source does tend to be more stable software. It's the right way to do things.\" - Linus Torvalds",
+      "\"Fully secure systems don't exist today and they won't exist in the future.\" - Adi Shamir",
+      "\"Information is the resolution of uncertainty.\" - Claude Shannon",
+      "\"Weak typing is a devil plaguing software correctness. It tempts you with ease of development, while secretly hiding undefined behaviour in the code.\" - Daniele Giachetto"
+  ];
+  var quote = quotes[quotes.length * Math.random() | 0];
+  return quote;
 };
 
-export const vim = async (args: string[]): Promise<string> => {
-  return `'vim' is so outdated. how about 'nvim'?`;
-};
-
-export const nvim = async (args: string[]): Promise<string> => {
-  return `'nvim'? too fancy. why not 'emacs'?`;
-};
-
-export const emacs = async (args?: string[]): Promise<string> => {
-  return `you know what? just use vscode.`;
-};
 
 export const sudo = async (args?: string[]): Promise<string> => {
-  window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); // ...I'm sorry
-  return `Permission denied: with little power comes... no responsibility? `;
+
+  const rick_rolls = [
+      "https://www.youtube.com/watch?v=aXOChLn5ZdQ",
+      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "https://www.youtube.com/watch?v=ZzI9JE0i6Lc",
+      "https://www.youtube.com/watch?v=m4-HM_sCvtQ", // let's increase the prob of java
+      "https://www.youtube.com/watch?v=m4-HM_sCvtQ",
+      "https://www.youtube.com/watch?v=m4-HM_sCvtQ",
+      "https://www.youtube.com/watch?v=HyWYpM_S-2c",
+  ]
+  var chosen_rick_roll = rick_rolls[rick_rolls.length * Math.random() | 0]
+  window.open(chosen_rick_roll, '_blank'); // ...I'm sorry
+  return `Permission denied: you may pwn me... but not THIS easily.`;
 };
 
 // Banner
 export const banner = (args?: string[]): string => {
   return `
-█████        ███                       ███████████                                   
-░░███        ░░░                       ░█░░░███░░░█                                   
- ░███        ████  █████ █████  ██████ ░   ░███  ░   ██████  ████████  █████████████  
- ░███       ░░███ ░░███ ░░███  ███░░███    ░███     ███░░███░░███░░███░░███░░███░░███ 
- ░███        ░███  ░███  ░███ ░███████     ░███    ░███████  ░███ ░░░  ░███ ░███ ░███ 
- ░███      █ ░███  ░░███ ███  ░███░░░      ░███    ░███░░░   ░███      ░███ ░███ ░███ 
- ███████████ █████  ░░█████   ░░██████     █████   ░░██████  █████     █████░███ █████
-░░░░░░░░░░░ ░░░░░    ░░░░░     ░░░░░░     ░░░░░     ░░░░░░  ░░░░░     ░░░░░ ░░░ ░░░░░ 
+ ███████████             █████                      ███
+░░███░░░░░███           ░░███                      ░░░
+ ░███    ░███   ██████   ░███ █████ █████ ████     █████  ██████
+ ░██████████   ░░░░░███  ░███░░███ ░░███ ░███     ░░███  ░░░░░███
+ ░███░░░░░███   ███████  ░██████░   ░███ ░███      ░███   ███████
+ ░███    ░███  ███░░███  ░███░░███  ░███ ░███      ░███  ███░░███
+ █████   █████░░████████ ████ █████ ░░████████     ░███ ░░████████
+░░░░░   ░░░░░  ░░░░░░░░ ░░░░ ░░░░░   ░░░░░░░░      ░███  ░░░░░░░░
+                                               ███ ░███
+                                              ░░██████
+                                               ░░░░░░
 
 Type 'help' to see the list of available commands.
-Type 'sumfetch' to display summary.
+Type 'summary' to display summary.
 Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.
+Type 'cv' or 'resume' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.resume_url}" target="_blank">here</a></u> for the updated resume.
 `;
 };
