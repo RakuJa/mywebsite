@@ -1,11 +1,11 @@
 {
-  "name": "liveterm",
+  "name": "rakujawebsite",
   "version": "0.1.0",
   "license": "MIT",
   "author": {
-    "name": "Vincent Wu",
-    "url": "https://cveinnt.com",
-    "email": "contact@wensenwu.com"
+    "name": "Rakuja",
+    "url": "https://danielegiachetto.com",
+    "email": "contact@danielegiachetto.com"
   },
   "scripts": {
     "dev": "next dev",
@@ -14,6 +14,7 @@
     "lint": "next lint",
     "prepare": "husky install"
   },
+  "packageManager": "yarn@1.22.19",
   "dependencies": {
     "axios": "^0.27.2",
     "next": "12.1.6",
