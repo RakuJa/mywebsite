@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/global.css';
 import Head from 'next/head';
 
+export const runtime = "edge";
+
 const App = ({ Component, pageProps }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
