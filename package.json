@@ -7,6 +7,7 @@
     "url": "https://danielegiachetto.com",
     "email": "contact@danielegiachetto.com"
   },
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
