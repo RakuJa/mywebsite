@@ -6,6 +6,8 @@ import { useHistory } from '../components/history/hook';
 import { History } from '../components/history/History';
 import { banner } from '../utils/bin';
 
+export const runtime = "edge";
+
 interface IndexPageProps {
   inputRef: React.MutableRefObject<HTMLInputElement>;
 }
