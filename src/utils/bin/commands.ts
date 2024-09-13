@@ -14,11 +14,12 @@ export const help = async (args: string[]): Promise<string> => {
       c += Object.keys(bin).sort()[i - 1] + ', ';
     }
   }
-  return `Welcome! Here are all the available commands:
+  return `This is an interactive website, in which you'll input commands with your keyboard to know more about myself.
+Here are all the available commands:
 \n${c}\n
 [tab]: trigger completion.
 [ctrl+l]/clear: clear terminal.\n
-Type 'summary' to display summary.
+Type 'summary' to display a brief summary of my information.
 `;
 };
 
@@ -30,12 +31,14 @@ export const repo = async (args: string[]): Promise<string> => {
 
 // About
 export const about = async (args: string[]): Promise<string> => {
-  return `Hi, I am ${config.name}. 
+  return `Hi, I am ${config.name} aka RakuJa. I am various things, but mainly a Software developer & Cybersecurity major.
 Welcome to my website!
 For more information about me, enter one of the following commands (without quotes!):
 'summary' - short summary.
 'resume' or 'cv' - my latest resume.
-'readme' - my github readme.`;
+'readme' - my github readme.
+Otherwise, if you'd like to play around a bit, type 'help' to see the list of all available commands.
+`;
 };
 
 export const resume = async (args: string[]): Promise<string> => {
@@ -59,8 +62,11 @@ here are the ways you can support my work:
 
 // Contact
 export const email = async (args: string[]): Promise<string> => {
-  window.open(`mailto:${config.email}`);
-  return `Opening mailto:${config.email}...`;
+  return `I have various email addresses, each divided by topic:
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="mailto:${config.email.work}@${config.email.domain}" target="_blank">Work</a></u>
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="mailto:${config.email.education}@${config.email.domain}" target="_blank">University/Education</a></u>
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="mailto:${config.email.personal}@${config.email.domain}" target="_blank">Personal</a></u>
+  `;
 };
 
 export const github = async (args: string[]): Promise<string> => {
@@ -91,12 +97,29 @@ Rust`;
 };
 
 export const cd = async (args: string[]): Promise<string> => {
-  return `unfortunately, i cannot afford more directories.
+  return `Unfortunately, I cannot afford more directories.
 if you want to help, you can type 'donate' (Also, I won't allow path traversal attacks).`;
 };
 
 export const date = async (args: string[]): Promise<string> => {
   return new Date().toString();
+};
+
+export const projects = async (args: string[]): Promise<string> => {
+  return ` These are the most important and completed projects I've worked on:
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="https://github.com/rakuja/carbonio-preview-ce/" target="_blank">Multimedia to image conversion service built with Python for the Carbonio suite.</a></u>
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="https://github.com/rakuja/BYBE/" target="_blank">Pathfinder 2E website, backend built with Rust.</a></u>
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="https://github.com/Summanuss/Efesto-CV/" target="_blank">Image recognition software for low-end hardware without GPU. Written in Rust.</a></u>
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="https://github.com/RakuJa/Tesi-triennale-cs-unipd/releases/" target="_blank">(Documentation only) - Webcrawler and scraper for darkweb built with Python, celery, s3, etc.</a></u>
+`;
+};
+
+export const studies = async (args: string[]): Promise<string> => {
+  return ` These are the most important and completed studies I've worked on:
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="https://github.com/RakuJa/Tesi-triennale-cs-unipd/releases/" target="_blank">Bachelor thesis on the subject of webcrawling and scraping on the darkweb</a></u>
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="https://github.com/RakuJa/Space_Communication_Notes/" target="_blank">Notes for the space communication systems of the Aerospace course.</a></u>
+- <u><a class="text-light-blue dark:text-dark-blue underline" href="https://github.com/RakuJa/Formula_SAE_Report/" target="_blank">A brief report of the work I've done in the Formula SAE team.</a></u>
+`;
 };
 
 export const quote = async (args: string[]): Promise<string> => {
@@ -112,7 +135,8 @@ export const quote = async (args: string[]): Promise<string> => {
       "\"I think, fundamentally, open source does tend to be more stable software. It's the right way to do things.\" - Linus Torvalds",
       "\"Fully secure systems don't exist today and they won't exist in the future.\" - Adi Shamir",
       "\"Information is the resolution of uncertainty.\" - Claude Shannon",
-      "\"Weak typing is a devil plaguing software correctness. It tempts you with ease of development, while secretly hiding undefined behaviour in the code.\" - Daniele Giachetto"
+      "\"Weak typing is a devil plaguing software correctness. It tempts you with ease of development, while secretly hiding undefined behaviour in the code.\" - Daniele Giachetto",
+      "\"Only sneaky people and impostors can oppose the progress of sciences and can discredit them, because they are the only ones to whom the sciences do harm.\" - Friedrich der Große"
   ];
   var quote = quotes[quotes.length * Math.random() | 0];
   return quote;
@@ -150,8 +174,10 @@ export const banner = (args?: string[]): string => {
                                               ░░██████
                                                ░░░░░░
 
+I'm ${config.name} aka RakuJa, a Software developer & Cybersecurity major.
+This is an interactive website, in which you'll input commands with your keyboard to know more about myself.
 Type 'help' to see the list of available commands.
-Type 'summary' to display summary.
+Type 'summary' to display a brief summary.
 Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.
 Type 'cv' or 'resume' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.resume_url}" target="_blank">here</a></u> for the updated resume.
 `;
