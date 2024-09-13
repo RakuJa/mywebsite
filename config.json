@@ -7,7 +7,12 @@
     "github": "rakuja",
     "linkedin": "danielegiachetto"
   },
-  "email": "danielegiachetto1999@gmail.com",
+  "email": {
+    "domain": "danielegiachetto.com",
+    "work": "work",
+    "education": "education",
+    "personal": "personal"
+  },
   "ps1_hostname": "danielegiachetto",
   "ps1_username": "visitor",
   "repo": "https://github.com/rakuja/mywebsite",
