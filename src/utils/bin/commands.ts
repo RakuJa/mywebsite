@@ -36,7 +36,6 @@ Welcome to my website!
 For more information about me, enter one of the following commands (without quotes!):
 'summary' - short summary.
 'resume' or 'cv' - my latest resume.
-'readme' - my github readme.
 Otherwise, if you'd like to play around a bit, type 'help' to see the list of all available commands.
 `;
 };
